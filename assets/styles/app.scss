@@ -1,0 +1,45 @@
+// Custom.scss
+// Option A: Include all of Bootstrap
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+$navbarFonts : 'Monoton', cursive;
+$titleFont : 'Big Shoulders Inline Text', cursive;
+$textFont : 'Roboto Slab', serif;
+$primaryColor : #0740B3;
+$secondaryColor : #052973;
+$spacing : 20px;
+$spacing2 : 40px;
+$spacing3 : 80px;
+
+body {
+    background-color : $primaryColor;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    border-bottom: 1px solid $primaryColor;
+}
+
+.nav-item .nav-link{
+    font-family: $navbarFonts;
+    color: $secondaryColor;
+    font-size: $spacing;
+}
+
+nav {
+    display: flex;
+}
+
+h1 h2 h3 {
+    color: $secondaryColor;
+    font-family: $titleFont;
+}
