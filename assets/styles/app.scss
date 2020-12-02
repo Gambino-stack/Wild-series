@@ -1,45 +1,59 @@
 // Custom.scss
 // Option A: Include all of Bootstrap
 
+
+
+
+
+
+$navbarFonts : 'Monoton', cursive;
+$titleFont : 'Big Shoulders Inline Text', cursive;
+$textFont : 'Roboto Slab', serif;
+$primary : #0740b3;
+$secondary : #052973;
+$light : #edecf3;
+$spacing : 20px;
+$spacing2 : 40px;
+$spacing3 : 80px;
+
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Text:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
-$navbarFonts : 'Monoton', cursive;
-$titleFont : 'Big Shoulders Inline Text', cursive;
-$textFont : 'Roboto Slab', serif;
-$primaryColor : #0740B3;
-$secondaryColor : #052973;
-$spacing : 20px;
-$spacing2 : 40px;
-$spacing3 : 80px;
-
-body {
-    background-color : $primaryColor;
-}
 
 * {
     box-sizing: border-box;
 }
 
-nav {
-    display: flex;
-    border-bottom: 1px solid $primaryColor;
-}
-
-.nav-item .nav-link{
+.navbar  {
+    background-color: $light;
+    border-bottom: 1px solid $primary;
     font-family: $navbarFonts;
-    color: $secondaryColor;
     font-size: $spacing;
+    color: $primary;
+    max-height: 120px;
 }
 
-nav {
-    display: flex;
+header {
+    background-color: $light;
+    margin-bottom: $spacing3 * 2;
 }
+
+nav ul {
+  margin-bottom: 0;
+}
+
+.nav-item .nav-link li{
+    font-family: $navbarFonts;
+    font-size: $spacing;
+    color: $primary;
+}
+
 
 h1 h2 h3 {
-    color: $secondaryColor;
     font-family: $titleFont;
+    color: $secondary;
 }
+

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProgramRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Program
 {
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="programs")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -33,10 +42,26 @@ class Program
     private $poster;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class)
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity=Season::class, mappedBy="programId")
      */
-    private $category;
+    private $seasons;
+
+    public function __construct()
+    {
+        $this->seasons = new ArrayCollection();
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
 
     public function getId(): ?int
     {
@@ -79,14 +104,32 @@ class Program
         return $this;
     }
 
-    public function getCategory(): ?Category
+    /**
+     * @return Collection|Season[]
+     */
+    public function getSeasons(): Collection
     {
-        return $this->category;
+        return $this->seasons;
     }
 
-    public function setCategory(?Category $category): self
+    public function addSeason(Season $season): self
     {
-        $this->category = $category;
+        if (!$this->seasons->contains($season)) {
+            $this->seasons[] = $season;
+            $season->setProgramId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSeason(Season $season): self
+    {
+        if ($this->seasons->removeElement($season)) {
+            // set the owning side to null (unless already changed)
+            if ($season->getProgramId() === $this) {
+                $season->setProgramId(null);
+            }
+        }
 
         return $this;
     }
