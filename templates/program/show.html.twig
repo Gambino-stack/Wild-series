@@ -3,21 +3,32 @@
 {% block title %}Série #{{ program.id }}{% endblock %}
 
 {% block body %}
-    <div class="media">
-        <img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
-        <div class="media-body">
-            <h1 class="mt-0">{{ program.title }}</h1>
-            <p class="badge badge-secondary py-2 px-2">{{ program.category.name }}</p>
-            <p>{{ program.summary }}</p>
-            <div class="card">
-                {% for season in seasons %}
-
-                    <a class="btn btn-dark mb-2" href="{{ path("program_season_show",{program: program.id,season: season.id}) }}"> <strong>saison - {{season.number}}</strong></a>
-                {% endfor %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+                <img class="img-fluid align-self-center" src="{{ program.poster }}" alt="{{ program.title }} poster">
             </div>
-            <a class="btn btn-info mt-5"href="{{ path('program_index') }}">
-                Retour à la liste des programmes
-            </a>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 mr-0">
+                <div class="media">
+                    <div class="media-body">
+                        <h1 class="mt-0">{{ program.title }}</h1>
+                        <p class="badge badge-secondary py-2 px-2">{{ program.category.name }}</p>
+                        <p>{{ program.summary }}</p>
+                        <div class="card">
+                            {% for season in seasons %}
+
+                                <a class="btn btn-dark mb-2"
+                                   href="{{ path("program_season_show",{program: program.id,season: season.id}) }}">
+                                    <strong>saison
+                                        - {{ season.number }}</strong></a>
+                            {% endfor %}
+                        </div>
+                        <a class="btn btn-info mt-5" href="{{ path('program_index') }}">
+                            Retour à la liste des programmes
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

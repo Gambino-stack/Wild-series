@@ -13,7 +13,7 @@
        <div class="card w-50">
            <strong>Liste des episodes :</strong><br>
            {% for episode in season.episodes %}
-                Épisode {{ episode.number }} : {{ episode.title }}<br>
+                <a href="{{ path("program_episode_show", {program: program.id,season: season.id,episode: episode.id}) }}">Épisode {{ episode.number }} : {{ episode.title }}<br></a>
                {% else %}
                 Pas d'épisodes
            {% endfor %}

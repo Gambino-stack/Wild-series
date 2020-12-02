@@ -52,8 +52,11 @@ nav ul {
 }
 
 
-h1 h2 h3 {
-    font-family: $titleFont;
+h1 {
     color: $secondary;
+    font-family: $titleFont;
 }
 
+.index-card {
+    height: 400px;
+}
