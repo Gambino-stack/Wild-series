@@ -1,12 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ parent() }} | Crée ta catégorie
+    {{ parent() }} | Ajoute une série
 {% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type='submit' value='Add category'>
-    {{ form_end(form) }}
+    <div class="container-fluid">
+        <h1 class="text-center mb-5">Ajoute une catégorie</h1>
+        <strong class="text-center">Pour créer une série il te faut tout d'abord créer une catégorie</strong>
+        <div class="form-group">
+            <div class="form-group"> {{ form_start(form) }}</div>
+            <div class="form-group"> {{ form_widget(form) }}</div>
+                <input class="form-control bg-light" type='submit' value='Add category'>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    <strong class="text-center">Maintenant Ajoute ta série en cliquant sur le bouton :</strong>
+    <a class="btn btn-light " href="{{ path('program_new') }}">Ta série</a>
+    </div>
+
+
 {% endblock %}
