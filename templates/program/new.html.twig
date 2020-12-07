@@ -5,8 +5,11 @@
 {% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type='submit' value='Add program'>
-    {{ form_end(form) }}
+    <div class="container form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        <input class="submit" type='submit' value='Add program'>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}
