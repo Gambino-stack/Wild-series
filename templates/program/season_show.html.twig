@@ -5,7 +5,16 @@
 {% endblock %}
 
 {% block body %}
-   <div class="container mt-5">
+   <div class="container season mt-5">
+       <style>
+           h1 {
+               background-image: url("{{ program.poster }}");
+               background-size: cover;
+               background-repeat: no-repeat;
+               backdrop-filter: blur(30%);
+               color: whitesmoke;
+           }
+       </style>
        <h1 class="border-bottom border-dark">Saison {{ season.number }}  de {{ program.title }}</h1>
        <div class="w-50">
              <p>{{ season.description }}</p>

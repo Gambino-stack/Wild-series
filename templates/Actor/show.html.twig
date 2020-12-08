@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} | {{ actor.name }}
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">{{ actor.name }}</h1>
+
+    <div class="text-center mt-5 mb-5">Séries dans lesquelles j'ai joué :</div>
+    <div class="row">
+        {% for program in programs %}
+            <div class="col col-sm-6 col-md-4 col-lg-3">
+                <div class="card">
+                    <img src="{{ program.poster }}" class="card-img-top" alt="{{ program.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ program.title }}</h5>
+                        <p class="card-text text-truncate">{{ program.summary }}</p>
+                        <a href="{{ path("program_show", {id: program.id}) }}" class="btn btn-primary">Voir la série</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            Aucune série pour cet acteur
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block body %}
+    <h1 class="text-center">Ajoute une série</h1>
     <div class="container form">
         {{ form_start(form) }}
         {{ form_widget(form) }}
         {{ form_errors(form) }}
-        <input class="submit" type='submit' value='Add program'>
+        <input class="form-control bg-light" type='submit' value='Ajoute la série'>
         {{ form_end(form) }}
     </div>
 {% endblock %}
