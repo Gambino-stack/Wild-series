@@ -45,6 +45,7 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Url()
      */
     private $poster;
 

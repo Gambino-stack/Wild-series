@@ -9,3 +9,5 @@ https://www.loom.com/share/762ca898cd6d412489450b5ff6179dd8
 https://www.loom.com/share/a06c3990078248b289ba380e3398fec5
 Liens pour la video de la Quête 13 : https://www.loom.com/share/a848fd18b8434e3dbff038159b74a71a
 Lien pour la video de la quete 14 : https://www.loom.com/share/6739b51553a94aac9e9ff8f7c70813ff
+Lien pour la video de la Quête 15 : https://www.loom.com/share/a665ddb4ff5344809be07d4b84662acc
+Lien pour la video de la quete 16 : https://www.loom.com/share/b8371c35e42a4170871e93f53c9317d8
