@@ -35,13 +35,13 @@ class Program
      * @Assert\NotBlank()
      * @Assert\Length(max="255")
      */
-    private $title;
+    private ?string $title;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\NotBlank()
      */
-    private $summary;
+    private ?string $summary;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -58,6 +58,11 @@ class Program
      * @ORM\ManyToMany(targetEntity=Actor::class, mappedBy="programs")
      */
     private $actors;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private ?string $slug;
 
     public function __construct()
     {
@@ -171,6 +176,18 @@ class Program
         if ($this->actors->removeElement($actor)) {
             $actor->removeProgram($this);
         }
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

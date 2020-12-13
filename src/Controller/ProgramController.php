@@ -7,6 +7,7 @@ use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
 use App\Form\ProgramType;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,30 +22,19 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProgramController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
-     * @return Response
-     */
-    public function index(): Response
-    {
-        $programs = $this->getDoctrine()
-            ->getRepository(Program::class)
-            ->findAll();
-        return $this->render('program/index.html.twig', [
-            'programs' => $programs
-        ]);
-    }
-
-    /**
      * The controller for the program add form
      *
      * @Route("/new", name="new")
      * @param Request $request
+     * @param Slugify $slugify
      * @return Response
      */
-    public function new(Request $request) : Response
+    public function new(Request $request, Slugify $slugify) : Response
     {
         // Create a new program Object
         $program = new Program();
+        $slug = $slugify->generate($program->getTitle());
+        $program->setSlug($slug);
         // Create the associated Form
         $form = $this->createForm(ProgramType::class, $program);
         // Get data from HTTP request
@@ -66,7 +56,21 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/show/{id}", requirements={"id"="\d+"}, name="show")
+     * @Route("/", name="index")
+     * @return Response
+     */
+    public function index(): Response
+    {
+        $programs = $this->getDoctrine()
+            ->getRepository(Program::class)
+            ->findAll();
+        return $this->render('program/index.html.twig', [
+            'programs' => $programs
+        ]);
+    }
+
+    /**
+     * @Route("/show/{slug}", methods={"GET"}, name="show")
      * @param Program $program
      * @return Response
      */
@@ -76,7 +80,7 @@ class ProgramController extends AbstractController
 
         if(!$program) {
             throw $this->createNotFoundException(
-                'No program with id : '.$id.' found in program\'s table.'
+                'No program found in program\'s table.'
             );
         }
 
@@ -114,7 +118,7 @@ class ProgramController extends AbstractController
      * @param Season $season
      * @param Episode $episode
      */
-    public function showEpisode(Program $program, Season $season, Episode $episode)
+    public function showEpisode(Program $program, Season $season, Episode $episode): Response
     {
         return $this->render('program/episode_show.html.twig', [
             'program' => $program,

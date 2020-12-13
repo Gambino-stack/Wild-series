@@ -18,6 +18,8 @@ class CategoryFixtures extends Fixture
 
     ];
 
+
+
     public function load(ObjectManager $manager)
     {
         foreach (self::CATEGORIES as $key => $categoryName) {
