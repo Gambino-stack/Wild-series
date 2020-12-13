@@ -1,0 +1,10 @@
+{% extends 'layoutEmail.html.twig' %}
+
+{% block title %} {{ parent() }} - New episode {% endblock %}
+
+{% block body %}
+<h1>New episode {{ episode.title }} added on Wild Series</h1>
+<p>Hi, the new episode {{ episode.title }} has been added on Wild Series</p>
+<p>Summary : {{episode.synopsis }}
+    <a href="{{ path('episode_index') }}">Voir les episodes</a>
+    {% endblock %}

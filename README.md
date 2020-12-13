@@ -12,3 +12,4 @@ Lien pour la video de la quete 14 : https://www.loom.com/share/6739b51553a94aac9
 Lien pour la video de la Quête 15 : https://www.loom.com/share/a665ddb4ff5344809be07d4b84662acc
 Lien pour la video de la quete 16 : https://www.loom.com/share/b8371c35e42a4170871e93f53c9317d8
 Lien pour la video de la quete 17 : https://www.loom.com/share/9654fb1622b443739f46f1c89ff014c2
+Lien pour la video de la quete 18 : https://www.loom.com/share/cf444d86d4c74c269b830a3098937c40

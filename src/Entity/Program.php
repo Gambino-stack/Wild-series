@@ -21,14 +21,14 @@ class Program
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="programs")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $category;
+    private ?Category $category;
 
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=255, unique=true)
@@ -47,7 +47,7 @@ class Program
      * @ORM\Column(type="string", length=255, nullable=true)
      * @Assert\Url()
      */
-    private $poster;
+    private ?string $poster;
 
     /**
      * @ORM\OneToMany(targetEntity=Season::class, mappedBy="programId")

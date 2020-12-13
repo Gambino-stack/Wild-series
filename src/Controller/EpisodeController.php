@@ -9,15 +9,17 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/episode")
+ * @Route("/episode", name="episode_")
  */
 class EpisodeController extends AbstractController
 {
     /**
-     * @Route("/", name="episode_index", methods={"GET"})
+     * @Route("/", name="index", methods={"GET"})
      * @param EpisodeRepository $episodeRepository
      * @return Response
      */
@@ -29,32 +31,49 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="episode_new", methods={"GET","POST"})
+     * The controller for the program add form
+     *
+     * @Route("/new", name="new")
      * @param Request $request
+     * @param Slugify $slugify
+     * @param MailerInterface $mailer
      * @return Response
+     * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function new(Request $request): Response
+    public function new(Request $request, Slugify $slugify, MailerInterface $mailer) : Response
     {
+        // Create a new program Object
         $episode = new Episode();
+        // Create the associated Form
         $form = $this->createForm(EpisodeType::class, $episode);
+        // Get data from HTTP request
         $form->handleRequest($request);
-
+        // Was the form submitted ?
         if ($form->isSubmitted() && $form->isValid()) {
+            // Deal with the submitted data
+            // Get the Entity Manager
             $entityManager = $this->getDoctrine()->getManager();
+            $slug = $slugify->generate($episode->getTitle());
+            $episode->setSlug($slug);
+            // Persist program Object
             $entityManager->persist($episode);
+            // Flush the persisted object
             $entityManager->flush();
-
+            $email = (new Email())
+                ->from($this->getParameter('mailer_from'))
+                ->to('your_email@example.com')
+                ->subject('Un nouvel episode vient d\'être publiée !')
+                ->html($this->renderView('episode/newEpisodeEmail.html.twig', ['episode' => $episode]));
+            $mailer->send($email);
+            // Finally redirect to programs list
             return $this->redirectToRoute('episode_index');
         }
-
-        return $this->render('episode/new.html.twig', [
-            'episode' => $episode,
-            'form' => $form->createView(),
-        ]);
+        // Render the form
+        return $this->render('episode/new.html.twig', ["form" => $form->createView()]);
     }
 
     /**
-     * @Route("/{slug}", name="episode_show", methods={"GET"})
+     * @Route("/{slug}", name="show", methods={"GET"})
      * @param Episode $episode
      * @return Response
      */
@@ -66,7 +85,7 @@ class EpisodeController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/edit", name="episode_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @param Episode $episode
      * @param Slugify $slugify
