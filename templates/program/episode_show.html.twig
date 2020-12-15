@@ -19,6 +19,19 @@
                     <img class="img-fluid align-self-center" src="{{ program.poster }}"
                          alt="{{ program.title }} poster">
                 </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-12 mb-5">
+                    {% for comment in episode.comments %}
+                        <span class="badge badge-success">Note : {{ comment.rate }} / 5 </span> - {{ comment.comment }} - Posté par {{ comment.author.email}}  | <br>
+                    {% endfor %}
+                    {% if app.user %}
+                    <div class="container form">
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        {{ form_errors(form) }}
+                        <input class="form-control bg-light" type='submit' value='Ajoute un commentaire'>
+                        {{ form_end(form) }}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
