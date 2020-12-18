@@ -75,16 +75,15 @@ class Comment
         return $this;
     }
 
-    public function getAuthor(): ?User
-    {
-        return $this->author;
-    }
-
     public function setAuthor(?User $author): self
     {
         $this->author = $author;
 
         return $this;
+    }
+    public function getAuthor(): ?User
+    {
+        return $this->author;
     }
 
     public function getEpisodeId(): ?Episode
