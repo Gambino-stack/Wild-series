@@ -18,6 +18,13 @@
             {% block navbar %}{% include '_navbar.html.twig' %}{% endblock %}
         {% endblock %}
         {% block body %}{% endblock %}
+        {% for label, messages in app.flashes(['success', 'danger']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}" role="alert" >
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}

@@ -43,6 +43,8 @@ class SeasonController extends AbstractController
             $entityManager->persist($season);
             $entityManager->flush();
 
+            $this->addFlash('success', 'Une nouvelle saison à été ajoutée ! ✅');
+
             return $this->redirectToRoute('season_index');
         }
 
@@ -53,7 +55,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}", name="season_show", methods={"GET"})
+     * @Route("/{id}", name="season_show", methods={"GET"})
      * @param Season $season
      * @return Response
      */
@@ -65,7 +67,7 @@ class SeasonController extends AbstractController
     }
 
     /**
-     * @Route("/{slug}/edit", name="season_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="season_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Season $season
      * @return Response
@@ -99,6 +101,8 @@ class SeasonController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($season);
             $entityManager->flush();
+
+            $this->addFlash('danger', 'L\'épisode a bien été supprimé 🙈!');
         }
 
         return $this->redirectToRoute('season_index');

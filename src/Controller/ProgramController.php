@@ -67,6 +67,7 @@ class ProgramController extends AbstractController
                 ->html($this->renderView('program/newProgramEmail.html.twig', ['program' => $program]));
             $mailer->send($email);
             // Finally redirect to programs list
+            $this->addFlash('success', 'Une nouvelle série à été ajoutée ! ✅');
             return $this->redirectToRoute('program_index');
         }
         // Render the form
