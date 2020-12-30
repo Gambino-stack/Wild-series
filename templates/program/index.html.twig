@@ -5,6 +5,13 @@
 {% block body %}
     <div class="container-fluid">
         <h1 class="text-center m-5">Toutes les séries</h1>
+        <div class="container mb-5">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+            <button class="btn btn-outline-info text-center">Search</button>
+            {{ form_end(form) }}
+        </div>
         <div class="row">
             {% for program in programs %}
                 <div class="col-12 col-md-4 col-lg-3">
