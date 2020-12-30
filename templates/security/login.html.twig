@@ -4,6 +4,9 @@
 
 {% block body %}
     <div class="container">
+        <h1 class="text-center mb-5">Connecte toi et entre dans une nouvelle dimension</h1>
+        <p>😱 Quoi!?! Tu n'as pas encore ton compte ? no problème , Viens juste voir 👉🏻<a class="badge badge-primary ml-2 px-3 py-3" href="{{ path('app_register') }}">ICI</a></p>
+
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -15,16 +18,18 @@
                 </div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+
             <label for="inputEmail">Email</label>
             <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required
                    autofocus>
             <label for="inputPassword">Password</label>
             <input type="password" name="password" id="inputPassword" class="form-control" required>
 
+            <a class="btn" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
+
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
-            >
+            ><br>
 
             {#
             Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -38,7 +43,7 @@
             #}
 
             <button class="btn btn-lg btn-primary mt-5" type="submit">
-                Sign in
+                GO !
             </button>
         </form>
     </div>

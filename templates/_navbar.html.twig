@@ -17,9 +17,21 @@
                     </li>
                     <li class="nav-item mt-1">
                     {% if app.user %}
-                        {{ app.user.email }}
+                        <span class="mr-2">bonjour </span>{{ app.user.firstname }}
                         <span class="ml-2 mr-2"> | </span>
-                          <a href="{{ path('app_logout') }}"> déconnexion</a>
+                        <div class="dropdown d-inline-flex mr-5">
+                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Mon compte
+                            </button>
+                            <div class="dropdown-menu mr-3">
+                                <h3 class="text-center text-dark">Hey  {{ app.user.firstname }} !</h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">{{ app.user.email }}</li>
+                                </ul>
+                                <div class="dropdown-divider text-center"></div>
+                                <a class="text-center ml-2" href="{{ path('app_logout') }}">Déconnection</a>
+                            </div>
+                        </div>
                         {% else %}
                           <a href="{{ path('app_login') }}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-
                         lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

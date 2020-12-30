@@ -34,6 +34,17 @@ $spacing3 : 80px;
     font-size: $spacing;
     color: $primary;
     max-height: 120px;
+    .dropdown-menu {
+        width: 160px;
+        li {
+            font-family: $textFont;
+            font-size: 12px;
+        }
+        a{
+            font-family: $textFont;
+        }
+
+    }
 }
 
 header {
@@ -64,5 +75,7 @@ h1 {
 .svg {
   padding-top: 12px;
 }
+
+
 
 
