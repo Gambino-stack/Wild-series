@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository", repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  */
 class User implements UserInterface
@@ -53,11 +53,17 @@ class User implements UserInterface
      */
     private $firstname;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Program::class)
+     */
+    private $watchList;
+
 
     public function __construct()
     {
         $this->comments = new ArrayCollection();
         $this->programs = new ArrayCollection();
+        $this->watchList = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,5 +214,34 @@ class User implements UserInterface
         $this->firstname = $firstname;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Program[]
+     */
+    public function getWatchList(): Collection
+    {
+        return $this->watchList;
+    }
+
+    public function addWatchList(Program $watchList): self
+    {
+        if (!$this->watchList->contains($watchList)) {
+            $this->watchList[] = $watchList;
+        }
+
+        return $this;
+    }
+
+    public function removeWatchList(Program $watchList): self
+    {
+        $this->watchList->removeElement($watchList);
+
+        return $this;
+    }
+
+    public function isInWatchlist($program): bool
+    {
+        return $this->watchList->contains($program);
     }
 }

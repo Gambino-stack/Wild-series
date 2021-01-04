@@ -11,12 +11,17 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mr-0">
                 <div class="media">
                     <div class="media-body">
-                        <h1 class="mt-0">{{ program.title }}</h1>
+                        <h1 class="mt-0">{{ program.title }}
+                            {% if app.user %}
+                                <button id="watchlist">
+                                     <i id="watchlistIcon" class="watchlist {{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart ml-5" data-href="{{ path('program_watchlist', {'id': program.id}) }}"></i>
+                                </button>
+                            {% endif %}
+                        </h1>
                         <p class="badge badge-secondary py-2 px-2">{{ program.category.name }}</p>
                         <p>{{ program.summary }}</p>
                         <div class="card">
                             {% for season in seasons %}
-
                                 <a class="btn btn-dark mb-2"
                                    href="{{ path("program_season_show",{program: program.id,season: season.id}) }}">
                                     <strong>saison
@@ -45,4 +50,8 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('watchlist') }}
 {% endblock %}

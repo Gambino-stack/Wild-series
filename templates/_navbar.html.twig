@@ -17,7 +17,7 @@
                     </li>
                     <li class="nav-item mt-1">
                     {% if app.user %}
-                        <span class="mr-2">bonjour </span>{{ app.user.firstname }}
+                        <span class="mr-2">{{ 'hello'|trans }}</span>{{ app.user.firstname }}
                         <span class="ml-2 mr-2"> | </span>
                         <div class="dropdown d-inline-flex mr-5">
                             <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,20 +26,18 @@
                             <div class="dropdown-menu mr-3">
                                 <h3 class="text-center text-dark">Hey  {{ app.user.firstname }} !</h3>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">{{ app.user.email }}</li>
+                                    <li class="list-group-item">
+                                        {% trans with {'%username%': app.user.email} %}
+                                                hello_username
+                                        {% endtrans %} !
+                                    </li>
                                 </ul>
                                 <div class="dropdown-divider text-center"></div>
-                                <a class="text-center ml-2" href="{{ path('app_logout') }}">Déconnection</a>
+                                <a class="text-center ml-2" href="{{ path('app_logout') }}">{{ 'account.logout'|trans }}</a>
                             </div>
                         </div>
                         {% else %}
-                          <a href="{{ path('app_login') }}"><svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-person-
-                        lines-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                  <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0
-                         6zm7 1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1
-                         0 1h-4a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm2 9a.5.5 0 0 1
-                          .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
-                              </svg></a>
+                          <a href="{{ path('app_login') }}"> {{ 'account.login'|trans }}</a>
                         {% endif %}
                     </li>
                 </ul>

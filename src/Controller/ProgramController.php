@@ -13,6 +13,7 @@ use App\Form\SearchProgramFormType;
 use App\Form\SeasonType;
 use App\Repository\ProgramRepository;
 use App\Service\Slugify;
+use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +41,7 @@ class ProgramController extends AbstractController
      * @return Response
      * @throws \Symfony\Component\Mailer\Exception\TransportExceptionInterface
      */
-    public function new(Request $request, Slugify $slugify, MailerInterface $mailer) : Response
+    public function new(Request $request, Slugify $slugify, MailerInterface $mailer): Response
     {
         // Create a new program Object
         $program = new Program();
@@ -106,7 +107,7 @@ class ProgramController extends AbstractController
     {
         $seasons = $program->getSeasons();
 
-        if(!$program) {
+        if (!$program) {
             throw $this->createNotFoundException(
                 'No program found in program\'s table.'
             );
@@ -124,19 +125,19 @@ class ProgramController extends AbstractController
      */
     public function showSeason(Program $program, Season $season): Response
     {
-        if(!$program) {
+        if (!$program) {
             throw $this->createNotFoundException(
                 'No program  found in program\'s table.'
             );
         }
-        if(!$season) {
+        if (!$season) {
             throw $this->createNotFoundException(
                 'No season  found in program\'s table.'
             );
         }
         return $this->render('program/season_show.html.twig', [
             'program' => $program,
-            'season'=> $season
+            'season' => $season
         ]);
     }
 
@@ -183,8 +184,8 @@ class ProgramController extends AbstractController
     public function edit(Request $request, Program $program): Response
     {
         if (!($this->getUser() == $program->getOwner())) {
-             // If not the owner, throws a 403 Access Denied exception
-           throw new AccessDeniedException('Only the owner can edit the program!');
+            // If not the owner, throws a 403 Access Denied exception
+            throw new AccessDeniedException('Only the owner can edit the program!');
         }
 
         $form = $this->createForm(ProgramType::class, $program);
@@ -199,6 +200,28 @@ class ProgramController extends AbstractController
         return $this->render('program/edit.html.twig', [
             'program' => $program,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}/watchlist", name="watchlist", methods={"GET","POST"})
+     * @param Request $request
+     * @param Program $program
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function addToWatchlist(Request $request, Program $program, EntityManagerInterface $entityManager): Response
+    {
+        if ($this->getUser()->getWatchList()->contains($program)) {
+            $this->getUser()->removeWatchList($program);
+        } else {
+            $this->getUser()->addWatchList($program);
+        }
+
+        $entityManager->flush();
+
+        return $this->json([
+            'isInWatchlist' => $this->getUser()->isInWatchlist($program)
         ]);
     }
 }
