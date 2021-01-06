@@ -1,22 +1,22 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ parent() }} | Categories{% endblock %}
+{% block title %} {{ parent() }} | {{ 'Categories'|trans }}{% endblock %}
 
 {% block body %}
-    <h1 class="text-center mb-5"> Catégories </h1>
+    <h1 class="text-center mb-5"> {{ 'Categories'|trans }} </h1>
     {% for category in categories %}
         <div class="text-center">
             <a class="btn" href="{{ path("category_show", { categoryName: category.name }) }}">{{ loop.index }} - {{ category.name }}</a>
         </div>
     {% else %}
         <div class="text-center">
-            <p>Aucune categorie trouvée.</p>
+            <p>{{ 'no records found'|trans }}</p>
         </div>
 
     {% endfor %}
     <div class="d-flex justify-content-center">
         <a class="btn btn-primary text-center mt-5" href="{{ path('app_index') }}">
-            Retour à l'accueil
+            {{'back_to_home'|trans}}
         </a>
     </div>
 {% endblock %}

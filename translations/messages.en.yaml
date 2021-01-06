@@ -1,0 +1,67 @@
+account.logout: Logout
+account.login: Login
+hello: Hello
+Reset_your_password: 'Reset your password'
+"Enter your email address and we we will send you a\n link to reset your password.": 'Enter your email address and we we will send you a\n link to reset your password.'
+Send_password_reset_email: 'Send password reset email'
+Password_Reset_Email_Sent: 'Password Reset Email Sent'
+'Email envoyé': 'Email sent'
+"An email has been sent that contains a link that you can click to reset your password. This link will expire\n        in": 'An email has been sent that contains a link that you can click to reset your password. This link will expire\n in'
+hour(s): hour(s)
+'If you don''t receive an email please check your spam folder or': 'If you don''''''''t receive an email please check your spam folder or'
+try_again: 'try again'
+Reset-password: 'Reset password'
+Categories: Categories
+'no records found': 'no records found'
+back_to_home: 'Back to home'
+connection: Connection
+no_account: '😱 What!?! You don''''t have any account ? There is no problem , Come on 👉🏻'
+password_forgot: 'Password forgotten ?'
+my_account: 'My account'
+back-to-list: 'Back to list'
+'New Episode': 'New Episode'
+'Create new Episode': 'Create new Episode'
+Episode: Episode
+Title: Title
+Number: Number
+edit: edit
+'Voir les episodes': 'See episodes'
+Edit_Program: 'Edit Program'
+'Épisode :': Épisode
+Synopsis: Synopsis
+Commentaires: Comments
+Note: Grade
+Posté_par: 'Posted by'
+'Laisse un avis sur cet épisode 👌 !': 'Leave a comment on this episode 👌 !'
+'Ajoute un commentaire': 'Leave a comment'
+Saison: Season
+'Liste des episodes': 'List of episodes'
+'Pas d''épisodes': 'No episodes found'
+'All programs': 'All programs'
+'Toutes les séries': 'All programs'
+Search: Search
+"Voir la\n  fiche": 'See the\n sheet'
+back-to-home: 'Back to home'
+Série: Program
+season: season
+Acteurs: Actors
+'Aucun acteur pour cette série': 'No actors found for this program'
+Delete: Delete
+'Edit Season': Edit Season
+Create: Create
+Season: Season
+Year: Year
+Description: Description
+Séries dans lesquelles j'ai joué: Program(s) in which i played
+"Voir la\n série": See the\n program
+'Aucune série pour cet acteur': No program for this actor
+Films: Films
+Catégories: Categories
+Register: Register
+almost_connected: Your are almost one of us !
+'C''est parti !': Let''s go bitches !
+here: here
+Email: Email
+Password: Password
+go: Go
+langue: Language

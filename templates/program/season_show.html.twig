@@ -15,16 +15,16 @@
                color: whitesmoke;
            }
        </style>
-       <h1 class="border-bottom border-dark">Saison {{ season.number }}  de {{ program.title }}</h1>
+       <h1 class="border-bottom border-dark">{{ 'Saison'|trans }} {{ season.number }}  de {{ program.title }}</h1>
        <div class="w-50">
              <p>{{ season.description }}</p>
        </div>
        <div class="card w-50">
-           <strong>Liste des episodes :</strong><br>
+           <strong>{{ 'Liste des episodes'|trans }} :</strong><br>
            {% for episode in season.episodes %}
-                <a href="{{ path("program_episode_show", {program: program.id,season: season.id,episode: episode.id}) }}">Épisode {{ episode.number }} : {{ episode.title }}<br></a>
+                <a href="{{ path("program_episode_show", {program: program.id,season: season.id,episode: episode.id}) }}">{{'Épisode'|trans}} {{ episode.number }} : {{ episode.title }}<br></a>
                {% else %}
-                Pas d'épisodes
+           {{ 'Pas d\'épisodes'|trans}}
            {% endfor %}
        </div>
    </div>

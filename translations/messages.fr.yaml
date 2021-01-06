@@ -1,0 +1,67 @@
+account.logout: Deconnection
+account.login: Connection
+hello: Bonjour
+Reset_your_password:  Renouveller ton mot de passe
+"Enter your email address and we we will send you a\n                link to reset your password.": Entre ton adresse email et on t''''enverras un               lien pour refaire ton mot de passe.
+Send_password_reset_email: Envoyer l''''email pour un nouveau mot de passe
+Password_Reset_Email_Sent: Email de renouvellement envoyé
+'Email envoyé': Email envoyé
+"An email has been sent that contains a link that you can click to reset your password. This link will expire\n        in": Un lien t'a été envoyé par email, clique dessus et renouvelle ton mot de passe. Ce lien expire \n        dans
+hour(s): heure(s)
+'If you don''t receive an email please check your spam folder or': Si tu n''''as pas recu pas cet email, vérifie dans tes spam ou
+try_again: essaie encore
+Reset-password: renouvellement du mot de passe
+Categories: Catégories
+'no records found': aucun enregistrement trouvé
+back_to_home: Retour à l'accueil
+connection: connexion
+no_account: 😱 Quoi!?! Tu n'as pas encore ton compte ? no problème , Viens juste voir 👉🏻
+password_forgot: Mot de passe oublié ?
+my_account: Mon Compte
+back-to-list: Retour à la liste
+'New Episode': Nouvel épisode
+'Create new Episode': Crée un nouvel épisode
+Episode: Épisode
+Title: Titre
+Number: Nombre
+edit: Modifier
+'Voir les episodes': Voir les episodes
+Edit_Program: Modifier la saison
+Saison: Saison
+Épisode: Épisode
+Synopsis: Synopsis
+Commentaires: Commentaires
+Note: Note
+Posté_par: Posté_par
+'Laisse un avis sur cet épisode 👌 !': Laisse un avis sur cet épisode 👌 !
+'Ajoute un commentaire': Ajoute un commentaire
+'Liste des episodes': Liste des episodes
+'Pas d''épisodes': Pas d'épisodes
+'All programs': Toutes les séries
+'Toutes les séries': Toutes les séries
+Search: Rechercher
+Voir la fiche : Voir la fiche
+back-to-home: Retour à l'accueil
+Série: Série
+season: saison
+Acteurs: Acteurs
+'Aucun acteur pour cette série': Aucun acteur pour cette série
+Delete: Supprimer
+'Edit Season': Modifier la saison
+Create: Créer
+Season: Saison
+Year: Année
+Description: Description
+'Séries dans lesquelles j''ai joué': Séries dans lesquelles j'ai joué
+"Voir la\n série": Voir la\n série
+'Aucune série pour cet acteur': Aucune série pour cet acteur
+Films: Films
+Catégories: Catégories
+Register: Inscription
+almost_connected: Tu fais presque parti des nôtres !
+'C''est parti !': C'est parti !
+here: ICI
+Email: Email
+Password: Mot de passe
+go: Allez !
+langue: Langue

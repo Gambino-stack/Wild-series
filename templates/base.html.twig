@@ -13,10 +13,21 @@
         <link rel="stylesheet" href="/build/css/app.scss">
     </head>
     <body>
+
         {% block banner %} {% include '_mobilebanner.html.twig' %}{% endblock %}
         {% block header %}
             {% block navbar %}{% include '_navbar.html.twig' %}{% endblock %}
         {% endblock %}
+        <div class="dropdown d-flex justify-content-end mr-2 mb-5">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ 'langue'|trans }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button"><a class="dropdown-item" href="{{ path('app_index', {'_locale':'fr'})}}">Fr</a></button>
+                <button class="dropdown-item" type="button"><a class="dropdown-item" href="{{ path('app_index', {'_locale':'en'})}}">En</a></button>
+                <button class="dropdown-item" type="button"><a class="dropdown-item" href="{{ path('app_index', {'_locale':'es'})}}">Es</a></button>
+            </div>
+        </div>
         {% block body %}{% endblock %}
         {% for label, messages in app.flashes(['success', 'danger']) %}
             {% for message in messages %}

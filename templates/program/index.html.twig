@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} - All programs{% endblock %}
+{% block title %}{{ parent() }} - {{ 'All programs'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container-fluid">
-        <h1 class="text-center m-5">Toutes les séries</h1>
+        <h1 class="text-center m-5">{{'Toutes les séries'|trans}}</h1>
         <div class="container mb-5">
             {{ form_start(form) }}
             {{ form_widget(form) }}
             {{ form_errors(form) }}
-            <button class="btn btn-outline-info text-center">Search</button>
+            <button class="btn btn-outline-info text-center">{{ 'Search'|trans }}</button>
             {{ form_end(form) }}
         </div>
         <div class="row">
@@ -20,19 +20,19 @@
                             <h2 class="card-title text-center">{{ loop.index }} - {{ program.title }} - <p
                                         class="badge badge-secondary py-1 px-1">{{ program.category.name }}</p></h2>
                             <p class="card-text text-truncate">{{ program.summary }}</p>
-                            <a class="btn btn-info" href="{{ path("program_show", { slug: program.slug }) }}">Voir la
-                                fiche</a>
+                            <a class="btn btn-info" href="{{ path("program_show", { slug: program.slug }) }}">{{ 'Voir la
+                            fiche'|trans }}</a>
                         </div>
                     </div>
                 </div>
 
             {% else %}
-                Aucune série trouvée.
+                {{ 'no records found'|trans }}
             {% endfor %}
         </div>
 
         <a class="btn btn-primary mt-5 mb-5 text-center" href="{{ path('app_index') }}">
-            Retour à l'accueil
+            {{ 'back-to-home'|trans }}
         </a>
     </div>
 {% endblock %}

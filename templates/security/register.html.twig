@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}{{ 'Register'|trans }}{% endblock %}
 
 {% block body %}
     <div class="container">
@@ -8,17 +8,17 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-    <h1 class="text-center mb-5">Tu fais presque parti des nôtres 🤗 !</h1>
+    <h1 class="text-center mb-5">{{ 'almost_connected'|trans }}</h1>
 
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.firstname) }}
         {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
+            label:Password
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn btn-lg btn-primary mt-5">C'est parti !</button>
+        <button type="submit" class="btn btn-lg btn-primary mt-5">{{ 'C\'est parti !'|trans}}</button>
     {{ form_end(registrationForm) }}
     </div>
 {% endblock %}

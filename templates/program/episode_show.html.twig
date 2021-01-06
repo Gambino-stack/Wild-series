@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} {{ parent() }} | Episode {{ episode.number }} {% endblock %}
+{% block title %} {{ parent() }} | {{ 'Episode'|trans }} {{ episode.number }} {% endblock %}
 
 {% block body %}
     <div class="container">
@@ -8,12 +8,12 @@
         <div class="row text-center">
             <div class="col-12 col-md-10 col-lg-12">
                 <ul class="list-group list-group-horizontal justify-content-center mb-5">
-                    <li class="list-group-item">Saison : {{ season.number }}</li>
-                    <li class="list-group-item">Épisode : {{ episode.number }}</li>
-                    <li class="list-group-item">Episode : {{ episode.title }}</li>
+                    <li class="list-group-item">{{ 'Saison :'|trans }} {{ season.number }}</li>
+                    <li class="list-group-item">{{'Épisode :'|trans}} {{ episode.number }}</li>
+                    <li class="list-group-item">{{ 'Episode :'|trans }} {{ episode.title }}</li>
                 </ul>
                 <div class="card-text text-center mt-5 mb-5">
-                    <strong>Synopsis:</strong> {{ episode.synopsis }}
+                    <strong>{{ 'Synopsis'|trans }}:</strong> {{ episode.synopsis }}
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 col-lg-12 mb-5">
                     <img class="img-fluid align-self-center" src="{{ program.poster }}"
@@ -22,10 +22,9 @@
 
                 <div class="col-12 col-sm-12 col-md-6 col-lg-12 mb-5">
                     {% for comment in episode.comments %}
-                        <div>Commentaires :</div>
-                        <span class="badge badge-success">Note : {{ comment.rate }} / 5 </span> - {{ comment.comment }} -
-                        Posté
-                        par {{ comment.author.email }} | <br>
+                        <div>{{ 'Commentaires'|trans }} :</div>
+                        <span class="badge badge-success">{{ 'Note'|trans }} : {{ comment.rate }} / 5 </span> - {{ comment.comment }} -
+                    {{'Posté_par'|trans}} {{ comment.author.email }} | <br>
 
                         {% if is_granted("ROLE_ADMIN") or app.user == comment.author %}
                             <div class="d-flex justify-content-center align-self-center mt-4">
@@ -37,17 +36,17 @@
                         {% if app.user == comment.author %}
                             <div class="d-flex justify-content-center mt-4">
                             <a class="btn btn-outline-info" href="#">
-                                Éditer</a>
+                                {{ 'edit'|trans }}</a>
                             </div>
                         {% endif %}
                     {% endfor %}
                     {% if is_granted("ROLE_ADMIN") or is_granted("ROLE_CONTRIBUTOR") %}
-                    <span class="badge badge-light mt-5 mb-2">Laisse un avis sur cet épisode 👌 !</span>
+                    <span class="badge badge-light mt-5 mb-2">{{'Laisse un avis sur cet épisode 👌 !'|trans}}</span>
                     <div class="container form">
                         {{ form_start(form) }}
                         {{ form_widget(form) }}
                         {{ form_errors(form) }}
-                        <input class="form-control bg-light" type='submit' value='Ajoute un commentaire'>
+                        <input class="form-control bg-light" type='submit' value='{{ 'Ajoute un commentaire'|trans }}'>
                         {{ form_end(form) }}
                         {% endif %}
                     </div>

@@ -1,0 +1,67 @@
+account.logout: Desconexión
+account.login: Conexión
+hello: Hola
+Reset_your_password: 'restablecer la contraseña'
+"Enter your email address and we we will send you a\n link to reset your password.": 'Introduzca su dirección de correo electrónico y le enviaremos un enlace\n para restablecer su contraseña.'
+Send_password_reset_email: 'Enviar correo electrónico de restablecimiento de contraseña'
+Password_Reset_Email_Sent: 'Correo electrónico  de restablecimiento de contraseña enviado'
+'Email envoyé': 'Correo electrónico enviado'
+"An email has been sent that contains a link that you can click to reset your password. This link will expire\n in": 'Se ha enviado un correo electrónico que contiene un vínculo en el que puede hacer clic para restablecer la contraseña. Este enlace expirará\n en'
+hour(s): horas
+'If you don''t receive an email please check your spam folder or': 'Si no recibe un correo electrónico, compruebe su carpeta de correo basura o'
+try_again: 'vuelve a intentarlo'
+Reset-password: 'Restablecer contraseña'
+Categories: Categories
+'no records found': 'no se encontraron registros'
+back_to_home: 'Volver a la recepcion'
+connection: Conexión
+no_account: '¡¿Qué?! ¿Aún no tienes tu cuenta? No hay problema, ven a ver 👉'
+password_forgot: 'Contraseña olvidada ?'
+my_account: 'Mi cuenta'
+back-to-list: 'volver a la lista'
+'New Episode': 'nuevo episodio'
+'Create new Episode': 'Crear nuevo episodio'
+Episode: Episodio
+Title: Título
+Number: Numero
+edit: modificador
+'Voir les episodes': 'Ver las episodios'
+Edit_Program: 'Modificador la serie'
+Saison: Temporada
+Épisode: Episodio
+Synopsis: Synopsis
+Commentaires: Comentarios
+Note: Nota
+Posté_par: 'Posteado por'
+'Laisse un avis sur cet épisode 👌 !': 'Deja una opinión sobre este episodio 👌 !'
+'Ajoute un commentaire': 'Añadir comentario'
+'Liste des episodes': 'Lista de los episodios'
+'Pas d''épisodes': 'No episodios'
+'All programs': 'Todas las series'
+'Toutes les séries': 'Todas las series'
+Search: Buscar
+"Voir la\n fiche": 'Ver la\n ficha'
+back-to-home: 'Volver a la recepcion'
+Série: Serie
+season: temporada
+Acteurs: Actores
+'Aucun acteur pour cette série': 'Ningun actor en este serie'
+Delete: Eliminar
+'Edit Season': Modificador la temporada
+Create: Crear
+Season: Temporada
+Year: Año
+Description: Descripción
+Séries dans lesquelles j'ai joué: Series en las que jugué
+"Voir la\n série": Ver la serie
+'Aucune série pour cet acteur': Ninguna serie por este actor
+Films: Películas
+Catégories: Categories
+Register: Registrar
+almost_connected: Pronto serás uno de nosotros
+'C''est parti !': Vamos !
+here: aqui
+Email: correo electronico
+Password: Contrasena
+go: Vamos
+langue: Idioma
