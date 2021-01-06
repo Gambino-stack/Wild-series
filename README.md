@@ -20,3 +20,4 @@ Lien pour la video de la quête 22 : https://www.loom.com/share/dad3e1ce5d2840af
 Lien pour la video de la quete 23 : https://www.loom.com/share/026781e16e694b4db28fd933a2bd98b8
 lien pour la video de la quete 24 : https://www.loom.com/share/cc52eb7c71f04e9ab6803935ad3fd5ab
 Lien pour la video de la quete 25 : https://www.loom.com/share/f19afb1a17014c80b38aa3b8f282c36d
+Lien pour la video de la quete 26 : https://www.loom.com/share/8458529d3c904f1e8ced668d5f8ebfdc

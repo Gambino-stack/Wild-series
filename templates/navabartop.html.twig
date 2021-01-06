@@ -1,0 +1,3 @@
+{% for category in categories %}
+              <span class="text-center mr-4"><a class="btn btn-outline-info" href="{{ path('category_show', {categoryName: category.name}) }}">{{ category.name }}</a></span>
+{% endfor %}
