@@ -4,7 +4,8 @@
 
 {% block body %}
     <div class="container-fluid">
-        <h1 class="text-center m-5">{{'Toutes les séries'|trans}}</h1>
+
+        <h1 class="text-center m-5">{{ 'Toutes les séries'|trans }}</h1>
         <div class="container mb-5">
             {{ form_start(form) }}
             {{ form_widget(form) }}
@@ -15,12 +16,18 @@
         <div class="row">
             {% for program in programs %}
                 <div class="col-12 col-md-4 col-lg-3">
-                    <div class="index-card card mb-5 text-center bg-light">
-                        <div class=" card-body text-center m-5 mr-xs-4">
-                            <h2 class="card-title text-center">{{ loop.index }} - {{ program.title }} - <p
-                                        class="badge badge-secondary py-1 px-1">{{ program.category.name }}</p></h2>
+                    <div class="index-card card mb-5 text-center bg-outline-secondary">
+                        <div class=" card-body text-center mr-xs-4">
+                            <div class="mb-2">
+                                <img src="{{ asset('uploads/' ~ program.poster) }}" height="150px" width="150px" alt="poster">
+                            </div>
+                            <h2 class="card-title text-center text-info"> {{ program.title }}<span class="ml-2 text-dark"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-badge-4k" viewBox="0 0 16 16">
+                                <path d="M4.807 5.001C4.021 6.298 3.203 7.6 2.5 8.917v.971h2.905V11h1.112V9.888h.733V8.93h-.733V5.001h-1.71zm-1.23 3.93v-.032a46.781 46.781 0 0 1 1.766-3.001h.062V8.93H3.577zm9.831-3.93h-1.306L9.835 7.687h-.057V5H8.59v6h1.187V9.075l.615-.699L12.072 11H13.5l-2.232-3.415 2.14-2.584z"/>
+                                <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z"/>
+                            </svg></span><br>
+                                <p class="badge badge-secondary py-1 px-1">{{ program.category.name }}</p></h2>
                             <p class="card-text text-truncate">{{ program.summary }}</p>
-                            <a class="btn btn-info" href="{{ path("program_show", { slug: program.slug }) }}">{{ 'Voir la
+                            <a class="btn btn-info" href="{{ path('program_show', {'id': program.id} ) }}">{{ 'Voir la
                             fiche'|trans }}</a>
                         </div>
                     </div>

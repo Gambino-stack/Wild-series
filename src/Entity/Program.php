@@ -8,11 +8,17 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Validator\Constraints\DateTime;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
+
 
 
 /**
  * @ORM\Entity(repositoryClass=ProgramRepository::class)
  * @UniqueEntity("title", message="ce titre existe déjà")
+ * @Vich\Uploadable
  */
 class Program
 {
@@ -45,14 +51,28 @@ class Program
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Assert\Url()
      */
-    private ?string $poster;
+    private ?string $poster = null;
 
+    /**
+     * @Vich\UploadableField(mapping="poster_file", fileNameProperty="poster")
+     * @var File
+     * @Assert\File(
+     *      maxSize="1000000",
+     *     mimeTypes={"image/jpeg", "image/png", "image/jpg"},
+     * )
+     */
+    private $posterFile;
     /**
      * @ORM\OneToMany(targetEntity=Season::class, mappedBy="programId")
      */
     private $seasons;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private  \DateTime $updatedAt;
 
     /**
      * @ORM\ManyToMany(targetEntity=Actor::class, mappedBy="programs")
@@ -208,5 +228,35 @@ class Program
         $this->owner = $owner;
 
         return $this;
+    }
+
+    public function setPosterFile(File $image = null): ?Program
+    {
+        $this->posterFile = $image;
+        if ($image) {
+               $this->updatedAt = new \DateTime('now');
+       }
+        return $this;
+    }
+
+    public function getPosterFile(): ?File
+    {
+            return $this->posterFile;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getUpdatedAt(): \DateTime
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * @param DateTime $updatedAt
+     */
+    public function setUpdatedAt(?DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }

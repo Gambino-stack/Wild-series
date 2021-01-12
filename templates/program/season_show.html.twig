@@ -8,7 +8,7 @@
    <div class="container season mt-5">
        <style>
            h1 {
-               background-image: url("{{ program.poster }}");
+               background-image: url("{{ asset('uploads/' ~ program.poster) }}");
                background-size: cover;
                background-repeat: no-repeat;
                backdrop-filter: blur(30%);

@@ -99,7 +99,7 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/show/{slug}", methods={"GET"}, name="show")
+     * @Route("/show/{id}", methods={"GET"}, name="show")
      * @param Program $program
      * @return Response
      */
@@ -175,7 +175,7 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/edit/{slug}", name="edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="edit", methods={"GET","POST"})
      * @param Request $request
      * @IsGranted ("ROLE_ADMIN")
      * @param Program $program

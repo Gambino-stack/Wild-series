@@ -17,10 +17,10 @@
                     </li>
                     <li class="nav-item mt-1">
                     {% if app.user %}
-                        <span class="mr-2">{{ 'hello'|trans }}</span>{{ app.user.firstname }}
+                        <span class="hello mr-2">{{ 'hello'|trans }} {{ app.user.firstname }}</span>
                         <span class="ml-2 mr-2"></span>
                         <div class="dropdown d-inline-flex mr-5">
-                            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="account btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ 'my_account'|trans }}
                             </button>
                             <div class="dropdown-menu mr-3">

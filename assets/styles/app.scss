@@ -43,7 +43,10 @@ $spacing3 : 80px;
         a{
             font-family: $textFont;
         }
-
+        h3 {
+            font-family: $titleFont;
+            font-size: 16px;
+        }
     }
 }
 
@@ -81,7 +84,16 @@ h1 {
     border: none;
     color: $primary;
 }
+.badge {
+    font-size: 16px;
+}
 
+.hello {
+    font-family: $titleFont;
+    font-size: 20px;
+}
 
-
-
+.account {
+    font-family: $titleFont;
+    font-size: 20px;
+}
